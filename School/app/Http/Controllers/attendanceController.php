@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\attendance;
+use App\Attendance;
+use App\Student;
 
 class attendanceController extends Controller
 {
@@ -62,5 +63,6 @@ class attendanceController extends Controller
         } 
 
     }
+    
 
 }

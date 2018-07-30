@@ -15,9 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::get('/events','eventController@index');
+
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/connect','eventController@connect');
 Route::get('/viewAttendance','attendanceController@View');
 Route::get('/addAttendance','attendanceController@Add');
 Route::get('/editAttendance','attendanceController@Editdd');
+
+Route::get('/testAttendance','studentController@test');

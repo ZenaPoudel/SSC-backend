@@ -14,7 +14,7 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->increments('student_id');
+            $table->increments('id')->unique();
             $table->string('name');
             $table->string('guardian_name');
             $table->string('address');
@@ -25,7 +25,8 @@ class CreateStudentsTable extends Migration
             $table->Date('age');
             //$table->integer('created_at'); 
             $table->integer('class_id');
-            $table->rememberToken();
+            $table->string('section_id');
+            $table->string('token_key',400);
             $table->timestamps();
         });
     }

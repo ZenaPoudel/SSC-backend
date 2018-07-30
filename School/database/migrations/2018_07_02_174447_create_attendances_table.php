@@ -13,11 +13,14 @@ class CreateAttendancesTable extends Migration
      */
     public function up()
     {
+
+            if(!Schema::hasTable('attendances')){
         Schema::create('attendances', function (Blueprint $table) {
-            //$table->increments('id');
+            $table->increments('id')->unsigned()->unique();
             $table->integer('class_id');
             $table->integer('section_id');
-            $table->integer('student_id');
+            $table->integer('student_id')->nullable();
+            $table->foreign('student_id')->references('id')->on('student');
             $table->integer('sub_id');
             $table->integer('flag');
             $table->date('date');
@@ -25,6 +28,7 @@ class CreateAttendancesTable extends Migration
             //$table->timestamps();
         });
     }
+}
 
     /**
      * Reverse the migrations.
